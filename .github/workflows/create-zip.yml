@@ -11,4 +11,4 @@ jobs:
         type: 'zip'
         filename: 'pack.zip'
         exclusions: '*.git* /*node_modules/* .editorconfig'
-        path: 'helmcraft-pack/zips'
+        directory: '.'
