@@ -1,0 +1,13 @@
+{
+  "providers": [
+    {
+      "type": "bitmap",
+      "file": "custom/icons/   ",
+      "ascent": 9,
+      "height": 10,
+      "size": 10.0,
+      "oversample": 10.0,
+      "chars": ["   "]
+    }
+	]
+}
