@@ -2,12 +2,21 @@
   "providers": [
     {
       "type": "bitmap",
-      "file": "custom/icons/   ",
-      "ascent": 9,
-      "height": 10,
+      "file": "custom/icons/op.png",
+      "ascent": 8,
+      "height": 8,
       "size": 10.0,
       "oversample": 10.0,
-      "chars": ["   "]
+      "chars": ["㊊"]
+    },
+    {
+      "type": "bitmap",
+      "file": "custom/icons/logo.png",
+      "ascent": 15,
+      "height": 24,
+      "size": 10.0,
+      "oversample": 10.0,
+      "chars": ["㊋"]
     }
 	]
 }
