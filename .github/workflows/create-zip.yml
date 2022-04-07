@@ -1,25 +1,39 @@
-name: Create Archive
-on: [push]
+name: Push Pack
+
+on:
+  push:
+    branches: [ main ]
+
 jobs:
   build:
+    name: Compress pack
     runs-on: ubuntu-latest
     steps:
-    - name: Checkout code
-      uses: actions/checkout@v2
-    - name: pull latest and remove old file from repo
-      run: |
-        git config --global user.name "cubixy"
-        git config --global user.email "mylesseckler@gmail.com"
-        git config pull.rebase false
-        git pull
-        rm -f release.zip
-    - name: Archive Release
-      uses: thedoctor0/zip-release@master
-      with:
-        filename: 'pack.zip'
-        exclusions: '*.git* /*node_modules/* .editorconfig'
-    - name: push changes to remote
-      run: |
-        git add -A
-        git commit -m "pack"
-        git push --force
+      - uses: actions/checkout@v2
+        with:
+         fetch-depth: 0
+      - name: Get previous tag
+        id: get-previous-tag
+        uses: actions-ecosystem/action-get-latest-tag@v1
+      - name: Get pack version from mcmeta
+        id: lookupPackVersion
+        run: echo "::set-output name=PACK_VERSION::$(jq -r .pack.version pack.mcmeta)"
+      - name: Install pngquant
+        run: sudo apt-get install -y pngquant libpng-dev
+      - name: Compress Pack
+        run: zip -8 -r -X  pack.zip *
+      - name: generate pack release
+        env:
+          BEGIN_COMMIT: ${{ steps.get-previous-tag.outputs.tag }}
+          END_COMMIT: ${{ steps.lookupPackVersion.outputs.PACK_VERSION }}
+        run: git fetch --tags --force && git log --pretty=format:"* %s (%h)" ${BEGIN_COMMIT}..${END_COMMIT} > release_notes.md
+      - name: Create release
+        uses: ncipollo/release-action@v1
+        with:
+          artifacts: pack.zip
+          allowUpdates: true
+          bodyFile: "release_notes.md"
+          draft: false
+          prerelease: false
+          tag: "pack"
+          token: ${{ secrets.GITHUB_TOKEN }}
