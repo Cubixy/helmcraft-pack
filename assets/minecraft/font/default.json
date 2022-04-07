@@ -17,6 +17,15 @@
       "size": 10.0,
       "oversample": 10.0,
       "chars": ["㊋"]
+    },    
+    {
+      "type": "bitmap",
+      "file": "custom/icons/live.png",
+      "ascent": 8,
+      "height": 9,
+      "size": 10.0,
+      "oversample": 10.0,
+      "chars": ["㊌"]
     }
-	]
+  ]
 }
