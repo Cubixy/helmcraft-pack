@@ -26,6 +26,15 @@
       "size": 10.0,
       "oversample": 10.0,
       "chars": ["㊌"]
+    },
+    {
+      "type": "bitmap",
+      "file": "custom/icons/ .png",
+      "ascent": 15,
+      "height": 24,
+      "size": 10.0,
+      "oversample": 10.0,
+      "chars": [" "]
     }
   ]
 }
