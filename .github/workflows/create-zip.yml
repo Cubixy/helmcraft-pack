@@ -20,9 +20,6 @@ jobs:
         run: echo "::set-output name=PACK_VERSION::$(jq -r .pack.version pack.mcmeta)"
       - name: Install pngquant
         run: sudo apt-get install -y pngquant libpng-dev
-      - name: Minify Images
-        continue-on-error: true
-        run: find . -type f -name '*.png' -exec pngquant --strip -f --ext .png {} \; 2>/dev/null
       - name: Compress Pack
         run: zip -8 -r -X  pack.zip *
       - name: generate pack release
@@ -38,5 +35,5 @@ jobs:
           bodyFile: "release_notes.md"
           draft: false
           prerelease: false
-          tag: ${{ steps.lookupPackVersion.outputs.PACK_VERSION }}
+          tag: "pack"
           token: ${{ secrets.GITHUB_TOKEN }}
