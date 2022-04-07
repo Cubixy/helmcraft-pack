@@ -2,5 +2,6 @@
   "pack": {
     "pack_format": 8,
     "description": "Addon pack for Helmcraft SMP"
+    "version": "1.0.0"
   }
 }
