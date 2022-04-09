@@ -1,4 +1,4 @@
-<h1 align="center"><img height="35" src="https://raw.githubusercontent.com/Cubixy/helmcraft-pack/main/pack.png?token=GHSAT0AAAAAABSNOYCVKNFCR5CHUKP2RVOSYSRG56A"> Addons Pack</h1>
+<h1 align="center"><img height="35" src="https://emoji.gg/assets/emoji/5623-minecraft-animated.gif"> Addons Pack</h1>
 
 ### Helmcraft Addons
 
