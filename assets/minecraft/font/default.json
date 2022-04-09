@@ -27,14 +27,23 @@
       "oversample": 10.0,
       "chars": ["㊌"]
     },
-    {
+  {
       "type": "bitmap",
-      "file": "custom/icons/ .png",
-      "ascent": 15,
-      "height": 24,
+      "file": "custom/icons/full_logo.png",
+      "ascent": 22,
+      "height": 23,
       "size": 10.0,
       "oversample": 10.0,
-      "chars": [" "]
+      "chars": ["㊍"]
+    },
+  {
+      "type": "bitmap",
+      "file": "custom/icons/mcpe.png",
+      "ascent": 8,
+      "height": 9,
+      "size": 10.0,
+      "oversample": 10.0,
+      "chars": ["㊎"]
     }
-  ]
+	]
 }
