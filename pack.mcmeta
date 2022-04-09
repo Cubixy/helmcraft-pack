@@ -1,15 +1,6 @@
 {
-<<<<<<< Updated upstream
-	"pack": {
-		"pack_format": 8,
-		"description": "§dHelmcraft §8| §r§eAddons \n§7Version: §a0.1.0",
-		"version": "0.1.0"
-	}
-}
-=======
   "pack": {
     "pack_format": 8,
     "description": "Addon pack for Helmcraft SMP"
   }
 }
->>>>>>> Stashed changes
