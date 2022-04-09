@@ -1,11 +1,11 @@
-name: Push Pack
+name: Update Pack
 
-on:
+on: 
   push:
     branches: [ main ]
-
+    
 jobs:
-    lint:
+  lint:
     name: Lint Release
     runs-on: ubuntu-latest
     steps:
@@ -51,7 +51,7 @@ jobs:
           fi
   build:
     name: Compress and Send Pack
-    needs: [ lint, validate-version ]
+    needs: [lint, validate-version]
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v2
@@ -60,7 +60,7 @@ jobs:
       - name: Get previous tag
         id: get-previous-tag
         uses: actions-ecosystem/action-get-latest-tag@v1
-      - name: Get pack version from mcmeta
+      - name: Get pack version from pack.mcmeta
         id: lookupPackVersion
         run: echo "::set-output name=PACK_VERSION::$(jq -r .pack.version pack.mcmeta)"
       - name: Bump version and push tag
@@ -72,14 +72,14 @@ jobs:
           custom_tag: ${{ steps.lookupPackVersion.outputs.PACK_VERSION }}
       - name: Minify JSON
         run: find . -type f \( -iname \*.json -o -iname \*.mcmeta \) -print0 | while IFS= read -r -d '' line; do jq -c 'del(.credit, .groups)' ${line} > ${line}.tmp && mv ${line}.tmp ${line}; done
-      - name: Install imge compressor
+      - name: Install pngquant
         run: sudo apt-get install -y pngquant libpng-dev
       - name: Minify Images
         continue-on-error: true
         run: find . -type f -name '*.png' -exec pngquant --strip -f --ext .png {} \; 2>/dev/null
       - name: Compress Pack
-        run: zip -8 -r -X pack.zip *
-      - name: Generate release W
+        run: zip -8 -r -X  pack.zip *
+      - name: Generate release diff
         env:
           BEGIN_COMMIT: ${{ steps.get-previous-tag.outputs.tag }}
           END_COMMIT: ${{ steps.lookupPackVersion.outputs.PACK_VERSION }}
