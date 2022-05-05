@@ -1,4 +1,4 @@
-<h1 align="center"><img height="50" src="https://media.discordapp.net/attachments/717191084677136408/798206406541049896/image0.gif"> Addons Pack</h1>
+<h1 align=""><img height="70" width="400" src="https://media.discordapp.net/attachments/717191084677136408/798206406541049896/image0.gif"> Addons Pack</h1>
 
 ### Helmcraft Addons
 
