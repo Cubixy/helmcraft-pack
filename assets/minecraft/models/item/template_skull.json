@@ -25,8 +25,8 @@
             "scale": [ 0.5, 0.5, 0.5 ]
         },
         "thirdperson_lefthand": {
-            "rotation": [ 75, 180, 0 ],
-            "translation": [ -6, 3, 28 ],
+            "rotation": [ 75, 180, 3 ],
+            "translation": [ -5, 3, 28 ],
             "scale": [ 2.7, 2.7, 2.7 ]
         }
     }
